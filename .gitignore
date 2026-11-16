@@ -90,3 +90,6 @@ tmp/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+#---AI开发---
+.claude

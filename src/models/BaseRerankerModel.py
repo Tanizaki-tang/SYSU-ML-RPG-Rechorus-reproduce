@@ -7,7 +7,6 @@ import copy
 
 from models.BaseModel import *
 from models.BaseImpressionModel import *
-from models.general import *
 from models.sequential import *
 from models.developing import *		
 
@@ -43,13 +42,13 @@ class RerankModel(ImpressionModel):
 		# model_path = './{}'.format(self.ranker_model)
 		config_path = './model/{}Impression/{}'.format(self.ranker_name,self.ranker_config)
 		model_path = './model/{}Impression/{}'.format(self.ranker_name,self.ranker_model)
-		#read ranker config
+		# 读取 ranker（基座排序模型）的配置文件
 		ranker_config_dict = dict()
 		with open(config_path, "r", encoding="utf-8") as f:
 			ranker_config_dict.update(
 				yaml.load(f.read(), Loader=yaml.FullLoader)
 			)
-		#load ranker from model and get self.ranker_emb_size
+		# 从模型文件加载 ranker，并取得 self.ranker_emb_size（ranker 的 embedding 维度）
 		ranker_args = copy.deepcopy(args)
 		for k, v in ranker_config_dict.items():
 			if k != 'history_max':
@@ -66,12 +65,12 @@ class RerankModel(ImpressionModel):
 				param.requires_grad = False
 
 	class Dataset(ImpressionModel.Dataset):		
-		# Collate a batch according to the list of feed dicts
-		def collate_batch(self, feed_dicts: List[dict]) -> dict: # feed_dicts are a batch of dicts
+		# 根据 feed dict 列表拼装出一个批次
+		def collate_batch(self, feed_dicts: List[dict]) -> dict: # feed_dicts 是一个批次内的样本字典列表
 			feed_dict = super().collate_batch(feed_dicts)
 			feed_dict['batch_size'] = len(feed_dicts)
-			predict_dict = self.model.ranker(utils.batch_to_gpu(feed_dict, self.model.device)) # pos+pad+neg+pad
-			feed_dict['scores'] = predict_dict['prediction'] # [batch(or num_sequence),n_candidate]
+			predict_dict = self.model.ranker(utils.batch_to_gpu(feed_dict, self.model.device)) # 候选列表排布：正样本+填充+负样本+填充
+			feed_dict['scores'] = predict_dict['prediction'] # [batch（或序列数）, 候选物品数]
 			pos_mask = torch.arange(0, self.model.train_max_pos_item, device = self.model.device).type_as(feed_dict['pos_num']).unsqueeze(0).expand(feed_dict['batch_size'], self.model.train_max_pos_item).lt(feed_dict['pos_num'].unsqueeze(1))
 			neg_mask = torch.arange(0, self.model.train_max_neg_item, device = self.model.device).type_as(feed_dict['neg_num']).unsqueeze(0).expand(feed_dict['batch_size'], self.model.train_max_neg_item).lt(feed_dict['neg_num'].unsqueeze(1))
 			all_mask = torch.cat([pos_mask, neg_mask],dim = 1)
@@ -79,8 +78,8 @@ class RerankModel(ImpressionModel):
 			feed_dict['scores'] = torch.where(all_mask == 1, feed_dict['scores'],-np.inf * torch.ones_like(feed_dict['scores']))
 			_,temp = feed_dict['scores'].sort(dim = 1, descending = True)
 			_,feed_dict['position'] = temp.sort(dim = 1)
-			feed_dict['u_v'] = predict_dict['u_v'] # [batch(or num_sequence),ranker_embedding_len]
-			feed_dict['i_v'] = predict_dict['i_v'] # [batch(or num_sequence),ranker_embedding_len]
+			feed_dict['u_v'] = predict_dict['u_v'] # [batch（或序列数）, ranker 的 embedding 维度]
+			feed_dict['i_v'] = predict_dict['i_v'] # [batch（或序列数）, ranker 的 embedding 维度]
 			return feed_dict
 
 class RerankSeqModel(RerankModel):
@@ -107,12 +106,12 @@ class RerankSeqModel(RerankModel):
 		self.history_max = args.history_max
 	
 	class Dataset(ImpressionSeqModel.Dataset):		
-		# Collate a batch according to the list of feed dicts
-		def collate_batch(self, feed_dicts: List[dict]) -> dict: # feed_dicts are a batch of dicts
+		# 根据 feed dict 列表拼装出一个批次
+		def collate_batch(self, feed_dicts: List[dict]) -> dict: # feed_dicts 是一个批次内的样本字典列表
 			feed_dict = super().collate_batch(feed_dicts)
 			feed_dict['batch_size'] = len(feed_dicts)
-			predict_dict = self.model.ranker(utils.batch_to_gpu(feed_dict, self.model.device)) # pos+pad+neg+pad
-			feed_dict['scores'] = predict_dict['prediction'] # [batch(or num_sequence),n_candidate]
+			predict_dict = self.model.ranker(utils.batch_to_gpu(feed_dict, self.model.device)) # 候选列表排布：正样本+填充+负样本+填充
+			feed_dict['scores'] = predict_dict['prediction'] # [batch（或序列数）, 候选物品数]
 			pos_mask = torch.arange(0, self.model.train_max_pos_item, device = self.model.device).type_as(feed_dict['pos_num']).unsqueeze(0).expand(feed_dict['batch_size'], self.model.train_max_pos_item).lt(feed_dict['pos_num'].unsqueeze(1))
 			neg_mask = torch.arange(0, self.model.train_max_neg_item, device = self.model.device).type_as(feed_dict['neg_num']).unsqueeze(0).expand(feed_dict['batch_size'], self.model.train_max_neg_item).lt(feed_dict['neg_num'].unsqueeze(1))
 			all_mask = torch.cat([pos_mask, neg_mask],dim = 1)
@@ -120,10 +119,10 @@ class RerankSeqModel(RerankModel):
 			feed_dict['scores'] = torch.where(all_mask == 1, feed_dict['scores'],-np.inf * torch.ones_like(feed_dict['scores']))
 			_,temp = feed_dict['scores'].sort(dim = 1, descending = True)
 			_,feed_dict['position'] = temp.sort(dim = 1)
-			feed_dict['u_v'] = predict_dict['u_v'] # [batch(or num_sequence),ranker_embedding_len]
-			feed_dict['i_v'] = predict_dict['i_v'] # [batch(or num_sequence),ranker_embedding_len]
+			feed_dict['u_v'] = predict_dict['u_v'] # [batch（或序列数）, ranker 的 embedding 维度]
+			feed_dict['i_v'] = predict_dict['i_v'] # [batch（或序列数）, ranker 的 embedding 维度]
 
-			#modeling user history, need all history item vector
+			# 建模用户历史：需要取出历史中所有物品的向量
 			ranker = self.model.ranker
 			if 'LightGCN' in self.model.ranker_name:
 				all_his_its = ranker.encoder.embedding_dict['item_emb'][feed_dict['history_items'].to(self.model.device),:]

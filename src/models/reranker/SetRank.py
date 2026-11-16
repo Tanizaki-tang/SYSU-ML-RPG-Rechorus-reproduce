@@ -11,7 +11,6 @@ import torch
 import torch.nn as nn
 from models.BaseRerankerModel import RerankModel
 from models.BaseRerankerModel import RerankSeqModel
-from models.general import *
 from models.sequential import *
 from models.developing import *
 from torch.nn import functional as F

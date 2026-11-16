@@ -1,0 +1,18 @@
+{
+  "phase": "test",
+  "decode": "full",
+  "metrics": {
+    "NDCG@5": 0.15745034289427925,
+    "HR@5": 0.2259933774834437,
+    "NDCG@10": 0.18556064155961405,
+    "HR@10": 0.3130794701986755
+  },
+  "examples": 6040,
+  "evaluation_seconds": 1.752014399971813,
+  "graph_build_seconds": 0.0,
+  "graph_edges": 50,
+  "graph_beams": 50,
+  "graph_steps": 3,
+  "seed": 2026,
+  "candidate_policy": "all items excluding prior history"
+}

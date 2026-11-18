@@ -1,0 +1,27 @@
+{
+  "interactions": 151254,
+  "items": 8713,
+  "missing_metadata_items": 0,
+  "splits": {
+    "dev": {
+      "interactions": 14681,
+      "items": 5443,
+      "usable_sequence_examples": 14681,
+      "users": 14681
+    },
+    "test": {
+      "interactions": 14681,
+      "items": 5230,
+      "usable_sequence_examples": 14681,
+      "users": 14681
+    },
+    "train": {
+      "interactions": 121892,
+      "items": 8687,
+      "usable_sequence_examples": 107211,
+      "users": 14681
+    }
+  },
+  "training_items": 8687,
+  "users": 14681
+}

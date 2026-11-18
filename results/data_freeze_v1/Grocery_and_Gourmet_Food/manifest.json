@@ -1,0 +1,43 @@
+{
+  "files": {
+    "dev.csv": "31d203458ee55b6c7dad68e42bbf84ffa3c0fb5f5b0686538fa42833943f9703",
+    "item2id.json": "eeeb2dfc3d6f13136c5940f1931fe4bd05c5f3ff752934e557b7de25ba5fd6c1",
+    "item_metadata.jsonl": "68bc0a476a4b44dcdb45d6663ad841bf6cb4f3a2a5d29010db0ce55d5714097d",
+    "protocol.json": "a2b704755e0a6fb2bc6a568306fe389bf7906088bf412d11a7cebbc33ffdba6d",
+    "stats.json": "bd7e02ca171d69c0599ba3e099170a13063c59902c20f9dc2d48fdd9ee7e063a",
+    "test.csv": "58a95e7aaff0d5c21b16f1123d06fd1e8bef84202375b111f1160a81d10e9344",
+    "train.csv": "5cb74a481b95e162cc1e5c1b92c63a98146c6a0b647e95bf521664919b7f5fc5",
+    "user2id.json": "48125d78817730e6f7a00bfdb23794db04a6953b0e390b67e82554702615d4f5"
+  },
+  "format_version": 1,
+  "pandas_version": "3.1.1",
+  "script_sha256": "7cf44767ecc6458e66b82ed9c8b9ea50ed809e8a318a0aaa9a4bd88ae41e09b5",
+  "sources": [
+    {
+      "name": "reviews_Grocery_and_Gourmet_Food_5.json.gz",
+      "sha256": "77c5b65fb395dcd24f6a81d95d2ea471e8d9a82b70431b39919c14ab52547dd1",
+      "url": "https://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_Grocery_and_Gourmet_Food_5.json.gz"
+    },
+    {
+      "name": "meta_Grocery_and_Gourmet_Food.json.gz",
+      "sha256": "069b927b5ed76927f103fa16e081437eaa41906271b99ba95e7ccda822899384",
+      "url": "https://snap.stanford.edu/data/amazon/productGraph/categoryFiles/meta_Grocery_and_Gourmet_Food.json.gz"
+    },
+    {
+      "name": "rechorus_train.csv",
+      "sha256": "75847958fbcfec35dd0a20bda43432c22a5d7e5b5fe571fef0b25ff580b475f4",
+      "url": "https://raw.githubusercontent.com/THUwangcy/ReChorus/c164ec4303cc20ddcfbd1b57de366a481811d1e5/data/Grocery_and_Gourmet_Food/train.csv"
+    },
+    {
+      "name": "rechorus_dev.csv",
+      "sha256": "39a17a018a883991cce4404a0e9d38bc7f1fda09fb8fafabd3b3e5811fdb9c80",
+      "url": "https://raw.githubusercontent.com/THUwangcy/ReChorus/c164ec4303cc20ddcfbd1b57de366a481811d1e5/data/Grocery_and_Gourmet_Food/dev.csv"
+    },
+    {
+      "name": "rechorus_test.csv",
+      "sha256": "3e0ac1cf6acc4e4a96964e7334a0a2f592097197ad36f25dc6b336154f834aa4",
+      "url": "https://raw.githubusercontent.com/THUwangcy/ReChorus/c164ec4303cc20ddcfbd1b57de366a481811d1e5/data/Grocery_and_Gourmet_Food/test.csv"
+    }
+  ],
+  "upstream_commit": "c164ec4303cc20ddcfbd1b57de366a481811d1e5"
+}

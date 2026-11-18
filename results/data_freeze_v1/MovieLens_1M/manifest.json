@@ -1,0 +1,23 @@
+{
+  "files": {
+    "dev.csv": "639b1112d5c048f703ecfc15aa094bdeb6f2ddfe07689d2e2e14182ab1424a6e",
+    "item2id.json": "e900fa8c3acb2d92b90fe735676041445381844a1f9546a23c044df61b4a8c47",
+    "item_metadata.jsonl": "7a9f7ec50badcb6ee262099e1c53fc6189e8dded36f64538a42391adf2bbed7f",
+    "protocol.json": "e8701b088548e1efca33142fd2c102b98893ff4123b30caa79fbfc867f652329",
+    "stats.json": "a7a4ab2508fd9cda07a64e3ac8e04c56be4f2a6c16ab525784125d520612af50",
+    "test.csv": "9868d90888fd74bfbefba2b8a8fd59a98a889c131a975a272e3f0d7fe51a4b4b",
+    "train.csv": "1b619ea258fdfe585ced2e63bc7af85d9a07b46bd2dd2e0b5860246d744d05c4",
+    "user2id.json": "267fd04ba731fb4128d19f27eb8d5aef92f23bbea66aca82d9bea4b3b7ded6ff"
+  },
+  "format_version": 1,
+  "pandas_version": "3.1.1",
+  "script_sha256": "7cf44767ecc6458e66b82ed9c8b9ea50ed809e8a318a0aaa9a4bd88ae41e09b5",
+  "sources": [
+    {
+      "name": "ml-1m.zip",
+      "sha256": "a6898adb50b9ca05aa231689da44c217cb524e7ebd39d264c56e2832f2c54e20",
+      "url": "https://files.grouplens.org/datasets/movielens/ml-1m.zip"
+    }
+  ],
+  "upstream_commit": "c164ec4303cc20ddcfbd1b57de366a481811d1e5"
+}

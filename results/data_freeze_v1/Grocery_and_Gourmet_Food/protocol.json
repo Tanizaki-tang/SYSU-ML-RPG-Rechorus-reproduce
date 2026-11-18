@@ -1,0 +1,20 @@
+{
+  "dataset": "Amazon Reviews 2014 Grocery 5-core",
+  "evaluation": "rolling next-item, full catalog",
+  "feedback": "review interactions",
+  "filter_policy": "past history, with current target eligible",
+  "history_length": "all earlier retained interactions",
+  "history_order": "time ascending, then row_id ascending within user",
+  "mapping_order": "original ID string ascending",
+  "metrics": [
+    "HR@5",
+    "HR@10",
+    "NDCG@5",
+    "NDCG@10"
+  ],
+  "model_history_limit": 50,
+  "padding_item_id": 0,
+  "sampled_evaluation_negatives": false,
+  "split": "fixed ReChorus train/dev/test",
+  "upstream_commit": "c164ec4303cc20ddcfbd1b57de366a481811d1e5"
+}

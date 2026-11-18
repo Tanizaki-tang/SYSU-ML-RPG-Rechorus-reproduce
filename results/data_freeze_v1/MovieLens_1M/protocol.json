@@ -1,0 +1,32 @@
+{
+  "boundary_days": [
+    831,
+    935
+  ],
+  "dataset": "MovieLens-1M",
+  "evaluation": "rolling next-item, full catalog",
+  "evaluation_users_items": "must occur in training",
+  "filter": "iterative positive-interaction user/item 5-core",
+  "filter_policy": "past history, with current target eligible",
+  "history_length": "all earlier retained interactions",
+  "history_order": "time ascending, then row_id ascending within user",
+  "mapping_order": "original ID string ascending",
+  "metrics": [
+    "HR@5",
+    "HR@10",
+    "NDCG@5",
+    "NDCG@10"
+  ],
+  "model_history_limit": 50,
+  "origin_day_since_unix_epoch": 11072,
+  "padding_item_id": 0,
+  "positive_rating_threshold": 4,
+  "removed_eval_rows": {
+    "dev": 89,
+    "test": 90
+  },
+  "sampled_evaluation_negatives": false,
+  "split": "calendar-day span boundaries 80% and 90%",
+  "timezone": "UTC",
+  "upstream_commit": "c164ec4303cc20ddcfbd1b57de366a481811d1e5"
+}

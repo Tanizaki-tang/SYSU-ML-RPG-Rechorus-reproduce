@@ -1,9 +1,12 @@
+from bisect import bisect_right
 from pathlib import Path
 
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.nn.utils.rnn import pad_sequence
+from torch.utils.data import Dataset as TorchDataset
 from transformers import GPT2Config, GPT2Model
 
 from models.BaseModel import SequentialModel
@@ -19,9 +22,11 @@ class RPG(SequentialModel):
         parser = SequentialModel.parse_model_args(parser)
         parser.add_argument("--sid_file", default="semantic_ids.npy")
         parser.add_argument("--emb_size", type=int, default=128)
+        parser.add_argument("--ffn_size", type=int, default=512)
         parser.add_argument("--n_layers", type=int, default=2)
         parser.add_argument("--n_heads", type=int, default=4)
         parser.add_argument("--temperature", type=float, default=0.07)
+        parser.set_defaults(history_max=50, dropout=None)
         return parser
 
     def __init__(self, args, corpus):
@@ -54,17 +59,19 @@ class RPG(SequentialModel):
         offsets = torch.arange(self.digits) * self.codebook_size
         self.register_buffer("offsets", offsets)
 
+        dropout = args.dropout
         config = GPT2Config(
             vocab_size=self.digits * self.codebook_size + 1,
             n_positions=self.history_max,
             n_embd=args.emb_size,
             n_layer=args.n_layers,
             n_head=args.n_heads,
-            n_inner=args.emb_size * 4,
+            n_inner=args.ffn_size,
             activation_function="gelu_new",
-            resid_pdrop=args.dropout,
-            embd_pdrop=args.dropout,
-            attn_pdrop=args.dropout,
+            resid_pdrop=0.0 if dropout is None else dropout,
+            embd_pdrop=0.5 if dropout is None else dropout,
+            attn_pdrop=0.5 if dropout is None else dropout,
+            layer_norm_epsilon=1e-12,
             use_cache=False,
         )
         self.backbone = GPT2Model(config)
@@ -76,13 +83,10 @@ class RPG(SequentialModel):
         )
         for head in self.heads:
             nn.init.zeros_(head.weight)
-            nn.init.zeros_(head.bias)
 
         self.adjacency = None
 
-    def token_logits(self, feed):
-        history = feed["history_items"].long()
-        lengths = feed["lengths"].long()
+    def _encode_history(self, history):
         valid = history.ne(0)
 
         # 每个码本使用独立的 token 区间，0 为 padding。
@@ -91,16 +95,15 @@ class RPG(SequentialModel):
         embeddings = self.backbone.wte(tokens).mean(dim=-2)
         embeddings = embeddings * valid.unsqueeze(-1)
 
-        hidden = self.backbone(
+        return self.backbone(
             inputs_embeds=embeddings,
             attention_mask=valid.long(),
             use_cache=False,
         ).last_hidden_state
-        batch_rows = torch.arange(len(history), device=history.device)
-        state = hidden[batch_rows, lengths - 1]
 
+    def _predict_tokens(self, states):
         projected = torch.stack(
-            [state + F.silu(head(state)) for head in self.heads],
+            [states + F.silu(head(states)) for head in self.heads],
             dim=1,
         )
         projected = F.normalize(projected, dim=-1)
@@ -114,6 +117,20 @@ class RPG(SequentialModel):
         return torch.einsum(
             "bmd,mcd->bmc", projected, token_embeddings
         ) / self.temperature
+
+    def token_logits(self, feed):
+        history = feed["history_items"].long()
+        hidden = self._encode_history(history)
+        batch_rows = torch.arange(len(history), device=history.device)
+        return self._predict_tokens(hidden[batch_rows, feed["lengths"] - 1])
+
+    def training_loss(self, feed):
+        targets = feed["target_items"]
+        supervised = targets.ne(0)
+        hidden = self._encode_history(feed["history_items"])
+        logits = self._predict_tokens(hidden[supervised])
+        target_codes = self.codes[targets[supervised]]
+        return self.loss({"token_logits": logits, "target_codes": target_codes})
 
     def score_items(self, log_probs, item_ids):
         """item_ids 可以为 [candidates] 或 [batch, candidates]。"""
@@ -263,4 +280,45 @@ class RPG(SequentialModel):
                     [item for item, _ in history], dtype=np.int64
                 ),
                 "lengths": len(history),
+            }
+
+    class PackedDataset(TorchDataset):
+        """First window predicts every next item. Later windows predict the last."""
+
+        def __init__(self, corpus, history_max):
+            self.history_max = history_max
+            frame = corpus.data_df["train"].sort_values(["user_id", "position"])
+            self.sequences = []
+            self.window_ends = []
+            self.target_count = 0
+            for _, items in frame.groupby("user_id", sort=False)["item_id"]:
+                if len(items) < 2:
+                    continue
+                self.sequences.append(items.to_numpy(dtype=np.int64, copy=True))
+                previous_end = self.window_ends[-1] if self.window_ends else 0
+                self.window_ends.append(previous_end + max(1, len(items) - history_max))
+                self.target_count += len(items) - 1
+
+        def __len__(self):
+            return self.window_ends[-1] if self.window_ends else 0
+
+        def __getitem__(self, index):
+            user_index = bisect_right(self.window_ends, index)
+            start = index - (self.window_ends[user_index - 1] if user_index else 0)
+            seq = self.sequences[user_index]
+            stop = min(start + self.history_max, len(seq) - 1)
+            history = torch.from_numpy(seq[start:stop])
+            if start == 0:
+                targets = torch.from_numpy(seq[1:stop + 1])
+            else:
+                targets = torch.zeros_like(history)
+                targets[-1] = int(seq[stop])
+            return history, targets
+
+        @staticmethod
+        def collate_batch(windows):
+            histories, targets = zip(*windows)
+            return {
+                "history_items": pad_sequence(histories, batch_first=True),
+                "target_items": pad_sequence(targets, batch_first=True),
             }

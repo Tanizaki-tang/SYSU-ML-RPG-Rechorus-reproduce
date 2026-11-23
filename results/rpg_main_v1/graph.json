@@ -1,0 +1,10 @@
+{
+  "MovieLens_1M": {
+    "edges": 100,
+    "steps": 3
+  },
+  "Grocery_and_Gourmet_Food": {
+    "edges": 500,
+    "steps": 3
+  }
+}

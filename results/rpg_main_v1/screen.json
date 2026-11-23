@@ -1,0 +1,52 @@
+{
+  "MovieLens_1M": {
+    "RPG": [
+      {
+        "digits": 32,
+        "lr": 0.001,
+        "temperature": 0.05
+      },
+      {
+        "digits": 32,
+        "lr": 0.001,
+        "temperature": 0.07
+      }
+    ],
+    "SASRec": [
+      {
+        "lr": 0.001,
+        "dropout": 0.0
+      }
+    ],
+    "GRU4Rec": [
+      {
+        "lr": 0.003
+      }
+    ]
+  },
+  "Grocery_and_Gourmet_Food": {
+    "RPG": [
+      {
+        "digits": 32,
+        "lr": 0.003,
+        "temperature": 0.07
+      },
+      {
+        "digits": 16,
+        "lr": 0.001,
+        "temperature": 0.05
+      }
+    ],
+    "SASRec": [
+      {
+        "lr": 0.001,
+        "dropout": 0.0
+      }
+    ],
+    "GRU4Rec": [
+      {
+        "lr": 0.003
+      }
+    ]
+  }
+}

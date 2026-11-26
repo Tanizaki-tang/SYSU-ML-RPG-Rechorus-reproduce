@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "primary_method": "directed",
+  "validation_pilot_sha256": "72695cdbdc8b4ac243da0b81ee912904e1aaa01a9de2f0e2b493f742fa9d86ab",
+  "locked_validation_sha256": "25dd78ba4fb7f585ed546cd8725b354eaf78abc171d3485f42dc190d397425cf",
+  "checkpoint_seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "protocol": {
+    "split_seed": 2026,
+    "top_k": 100,
+    "behavior_history": 5,
+    "history_decay": 0.8,
+    "prior_mass": 50.0,
+    "reliability_mass": 5.0,
+    "candidate_normalization": "Per-query z-score over eligible Top-100 candidates",
+    "fusion": "standardized RPG score + weight * standardized behavior score",
+    "behavior": "Weighted log predictive lift above training popularity, shrunk by pair count",
+    "time_aware": "Train adjacent pairs are forward for strictly increasing time and half-weight in both directions for equal time"
+  },
+  "datasets": {
+    "MovieLens_1M": {
+      "dataset_hash": "720649716397b366633d4d517f7b95d9ad67f749614d1fd08086a513ff39805c",
+      "sid_sha256": "3cdf27e3fb4784d5b3c9f174b7eef559a8e552546af2be10cadd2441563d437c",
+      "methods": {
+        "rpg": {
+          "weight": 0.0
+        },
+        "popularity": {
+          "weight": 0.05
+        },
+        "directed": {
+          "weight": 1.0
+        }
+      },
+      "test_baseline_by_seed": {
+        "2026": {
+          "checkpoint": "results/rpg_main_v1/train/MovieLens_1M/RPG/m32_lr0.001_t0.05_s2026_full/best.pt",
+          "checkpoint_sha256": "13144c620f762b23eb1f7d674fd01b10164dd662157e2e2ac09e14654e5b1d2a",
+          "instance_hash": "df491ac74f321132594c12f5dba0d1a0be177396bcecb20a4f35655c4d26abc4",
+          "metrics": {
+            "HR@5": 0.1129648939867918,
+            "NDCG@5": 0.07546058788595388,
+            "HR@10": 0.16718804310045185,
+            "NDCG@10": 0.09298223230148155
+          }
+        },
+        "2027": {
+          "checkpoint": "results/rpg_main_v1/train/MovieLens_1M/RPG/m32_lr0.001_t0.05_s2027_full/best.pt",
+          "checkpoint_sha256": "812148c7ae18d03ac370d93cf7679e2feefe109947c58b276215c415bd8efea3",
+          "instance_hash": "df491ac74f321132594c12f5dba0d1a0be177396bcecb20a4f35655c4d26abc4",
+          "metrics": {
+            "HR@5": 0.11087938825165103,
+            "NDCG@5": 0.07342120113095837,
+            "HR@10": 0.1689259645464025,
+            "NDCG@10": 0.09223465464830452
+          }
+        },
+        "2028": {
+          "checkpoint": "results/rpg_main_v1/train/MovieLens_1M/RPG/m32_lr0.001_t0.05_s2028_full/best.pt",
+          "checkpoint_sha256": "0606ec7bc0f20f5bbb82c312d5f528574acd5528f6afd59af15a707710ce336c",
+          "instance_hash": "df491ac74f321132594c12f5dba0d1a0be177396bcecb20a4f35655c4d26abc4",
+          "metrics": {
+            "HR@5": 0.11226972540841154,
+            "NDCG@5": 0.07355361075148328,
+            "HR@10": 0.1678832116788321,
+            "NDCG@10": 0.09133576833723928
+          }
+        }
+      },
+      "model": {
+        "temperature": 0.05
+      }
+    },
+    "Grocery_and_Gourmet_Food": {
+      "dataset_hash": "98b362f82a7d0305528f40d0bdb78670f6642c5e4564718469ae97338c708aa9",
+      "sid_sha256": "7c69788f411b3cd7aca403180a400abf700005f939aa9af1bdfb2bd7c956c549",
+      "methods": {
+        "rpg": {
+          "weight": 0.0
+        },
+        "popularity": {
+          "weight": 0.75
+        },
+        "directed": {
+          "weight": 0.75
+        }
+      },
+      "test_baseline_by_seed": {
+        "2026": {
+          "checkpoint": "results/rpg_main_v1/train/Grocery_and_Gourmet_Food/RPG/m32_lr0.003_t0.07_s2026_full/best.pt",
+          "checkpoint_sha256": "b7840269e8f298f94bbd33d0d3055bfa91d0f83d9b70bc8de0952511fd75af37",
+          "instance_hash": "d8e2d19e55b8bc41f077dc241cb111295cd9b3918becd18b5e82da7cae4fdbde",
+          "metrics": {
+            "HR@5": 0.04665894693821947,
+            "NDCG@5": 0.03190866362166155,
+            "HR@10": 0.07077174579388325,
+            "NDCG@10": 0.039616771629291406
+          }
+        },
+        "2027": {
+          "checkpoint": "results/rpg_main_v1/train/Grocery_and_Gourmet_Food/RPG/m32_lr0.003_t0.07_s2027_full/best.pt",
+          "checkpoint_sha256": "f6365b40b396ef0e0514b3ae8dca5f4c59debe34150621995f8b12aa49e228b2",
+          "instance_hash": "d8e2d19e55b8bc41f077dc241cb111295cd9b3918becd18b5e82da7cae4fdbde",
+          "metrics": {
+            "HR@5": 0.04550098767113957,
+            "NDCG@5": 0.03169301760968462,
+            "HR@10": 0.06763844424766706,
+            "NDCG@10": 0.038820713255586524
+          }
+        },
+        "2028": {
+          "checkpoint": "results/rpg_main_v1/train/Grocery_and_Gourmet_Food/RPG/m32_lr0.003_t0.07_s2028_full/best.pt",
+          "checkpoint_sha256": "660796234ced699da70e9709874a8c93da708c6de952e26032a662f0a0fce967",
+          "instance_hash": "d8e2d19e55b8bc41f077dc241cb111295cd9b3918becd18b5e82da7cae4fdbde",
+          "metrics": {
+            "HR@5": 0.04291260813296097,
+            "NDCG@5": 0.02998558503619223,
+            "HR@10": 0.06702540698862475,
+            "NDCG@10": 0.03773906835384472
+          }
+        }
+      },
+      "model": {
+        "temperature": 0.07
+      }
+    }
+  },
+  "model": {
+    "sid_file": "semantic_ids_m32.npy",
+    "emb_size": 128,
+    "ffn_size": 512,
+    "n_layers": 2,
+    "n_heads": 4,
+    "history_max": 50,
+    "eval_batch_size": 32,
+    "item_chunk": 2048
+  }
+}

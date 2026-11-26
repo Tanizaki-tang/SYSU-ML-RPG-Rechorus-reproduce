@@ -164,6 +164,56 @@ CONFIGS = {
         "pop_beta": 0.2,
         "pop_length_tau": 20,
     },
+    "zpop005": {
+        "decode": "full", "rerank_pop_weight": 0.05, "rerank_topk": 100,
+    },
+    "zpop075": {
+        "decode": "full", "rerank_pop_weight": 0.75, "rerank_topk": 100,
+    },
+    "tta_zpop005": {
+        "decode": "full",
+        "history_tta": "crops", "crop_lengths": "40,20,10",
+        "tta_aggregate": "prob", "tta_include_full": 0,
+        "rerank_pop_weight": 0.05, "rerank_topk": 100,
+    },
+    "tta_zpop025": {
+        "decode": "full",
+        "history_tta": "crops", "crop_lengths": "40,20,10",
+        "tta_aggregate": "prob", "tta_include_full": 0,
+        "rerank_pop_weight": 0.25, "rerank_topk": 100,
+    },
+    "tta_zpop050": {
+        "decode": "full",
+        "history_tta": "crops", "crop_lengths": "40,20,10",
+        "tta_aggregate": "prob", "tta_include_full": 0,
+        "rerank_pop_weight": 0.5, "rerank_topk": 100,
+    },
+    "tta_zpop075": {
+        "decode": "full",
+        "history_tta": "crops", "crop_lengths": "40,20,10",
+        "tta_aggregate": "prob", "tta_include_full": 0,
+        "rerank_pop_weight": 0.75, "rerank_topk": 100,
+    },
+    "tta_zpop100": {
+        "decode": "full",
+        "history_tta": "crops", "crop_lengths": "40,20,10",
+        "tta_aggregate": "prob", "tta_include_full": 0,
+        "rerank_pop_weight": 1.0, "rerank_topk": 100,
+    },
+    "mcd_zpop005": {
+        "decode": "full",
+        "history_tta": "crops", "crop_lengths": "40,20,10",
+        "tta_aggregate": "prob", "tta_include_full": 0,
+        "mcd_samples": 8,
+        "rerank_pop_weight": 0.05, "rerank_topk": 100,
+    },
+    "mcd_zpop075": {
+        "decode": "full",
+        "history_tta": "crops", "crop_lengths": "40,20,10",
+        "tta_aggregate": "prob", "tta_include_full": 0,
+        "mcd_samples": 8,
+        "rerank_pop_weight": 0.75, "rerank_topk": 100,
+    },
     "adaptive": {
         "decode": "full",
         "history_tta": "crops",
@@ -232,6 +282,10 @@ def build_command(
         command += ["--pop_beta", str(config["pop_beta"])]
     if "pop_length_tau" in config:
         command += ["--pop_length_tau", str(config["pop_length_tau"])]
+    if "rerank_pop_weight" in config:
+        command += ["--rerank_pop_weight", str(config["rerank_pop_weight"])]
+    if "rerank_topk" in config:
+        command += ["--rerank_topk", str(config["rerank_topk"])]
     return command
 
 

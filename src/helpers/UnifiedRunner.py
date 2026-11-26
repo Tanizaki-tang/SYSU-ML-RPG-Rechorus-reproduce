@@ -82,6 +82,14 @@ class UnifiedRunner(BaseRunner):
             "--pop_length_tau", type=float, default=0.0,
             help="流行度权重按 exp(-history_len/tau) 衰减；0 表示不衰减",
         )
+        parser.add_argument(
+            "--rerank_pop_weight", type=float, default=0.0,
+            help="在 top-N 候选内用 z-score 融合流行度；0 表示关闭",
+        )
+        parser.add_argument(
+            "--rerank_topk", type=int, default=100,
+            help="z-score 流行度重排的候选池大小",
+        )
         return parser
 
     def __init__(self, args):
@@ -135,6 +143,10 @@ class UnifiedRunner(BaseRunner):
             raise ValueError("logprob_scale 必须大于 0")
         if args.pop_length_tau < 0:
             raise ValueError("pop_length_tau 必须非负")
+        if args.rerank_pop_weight < 0:
+            raise ValueError("rerank_pop_weight 必须非负")
+        if args.rerank_topk < 1:
+            raise ValueError("rerank_topk 必须大于 0")
 
     def _build_views(self, histories):
         if self.args.history_tta == "none":
@@ -282,6 +294,18 @@ class UnifiedRunner(BaseRunner):
         self.last_views_used = used
         return accumulated
 
+    @staticmethod
+    def _row_standardize(values, valid):
+        """在每行的有效候选内做 z-score；无效位置返回 0。"""
+        values = values.masked_fill(~valid, 0.0)
+        count = valid.sum(dim=1, keepdim=True).clamp_min(1).to(values.dtype)
+        mean = values.sum(dim=1, keepdim=True) / count
+        centered = (values - mean) * valid
+        variance = (centered * centered).sum(
+            dim=1, keepdim=True
+        ) / count
+        return centered / variance.sqrt().clamp_min(1e-12)
+
     def eval_termination(self, criterion):
         # 连续 early_stop 个 epoch 没有严格改善时停止。
         best_index = max(
@@ -310,26 +334,36 @@ class UnifiedRunner(BaseRunner):
             raise ValueError("graph 模式只用于 RPG")
         if is_rpg and not callable(getattr(model, "score_items", None)):
             raise ValueError("当前 RPG 缺少 score_items() 接口")
+        if self.args.rerank_pop_weight and self.args.decode != "full":
+            raise ValueError("rerank_pop_weight 目前只支持 full 解码")
 
         # 总是输出完整的 5/10 指标，保证训练验证和最终评估一致。
         ks = sorted(set(topks) | {5, 10})
         max_k = max(ks)
         if corpus.n_items - 1 < max_k:
             raise ValueError("真实物品数小于 topk")
+        if self.args.rerank_pop_weight and self.args.rerank_topk < max_k:
+            raise ValueError("rerank_topk 不能小于最大 topk")
 
         device = next(model.parameters()).device
 
         item_prior = None
-        if self.args.pop_beta:
+        item_pop = None
+        if self.args.pop_beta or self.args.rerank_pop_weight:
             counts = np.zeros(corpus.n_items, dtype=np.float64)
             values = corpus.data_df["train"]["item_id"].value_counts()
             counts[values.index.to_numpy()] = values.to_numpy()
-            prior = np.log1p(counts)
-            body = prior[1:]
-            prior = (prior - body.mean()) / (body.std() + 1e-12)
-            item_prior = torch.tensor(
-                prior, dtype=torch.float32, device=device
-            )
+            pop = np.log1p(counts)
+            if self.args.pop_beta:
+                body = pop[1:]
+                standardized = (pop - body.mean()) / (body.std() + 1e-12)
+                item_prior = torch.tensor(
+                    standardized, dtype=torch.float32, device=device
+                )
+            if self.args.rerank_pop_weight:
+                item_pop = torch.tensor(
+                    pop, dtype=torch.float32, device=device
+                )
 
         graph_build_seconds = 0.0
         if self.args.decode == "graph":
@@ -431,6 +465,10 @@ class UnifiedRunner(BaseRunner):
                 predictions = torch.stack(predictions)
 
             else:
+                pool_k = (
+                    max(max_k, self.args.rerank_topk)
+                    if self.args.rerank_pop_weight else max_k
+                )
                 best_ids = torch.empty(
                     batch_size, 0, dtype=torch.long, device=device
                 )
@@ -477,10 +515,30 @@ class UnifiedRunner(BaseRunner):
                     best_ids, best_scores = rank_items(
                         torch.cat([best_ids, expanded_ids], dim=1),
                         torch.cat([best_scores, scores], dim=1),
-                        max_k,
+                        pool_k,
                     )
 
-                predictions = best_ids
+                if self.args.rerank_pop_weight:
+                    # 只在 top-N 候选内融合：z(RPG) + λ z(流行度)。
+                    valid = best_ids.gt(0) & torch.isfinite(best_scores)
+                    z_score = self._row_standardize(
+                        best_scores, valid
+                    )
+                    z_pop = self._row_standardize(
+                        item_pop[best_ids], valid
+                    )
+                    fused = (
+                        z_score + self.args.rerank_pop_weight * z_pop
+                    ).masked_fill(~valid, -torch.inf)
+                    order = fused.argsort(
+                        dim=1, descending=True
+                    )[:, :max_k]
+                    predictions = best_ids.gather(1, order)
+                    predictions = predictions.masked_fill(
+                        ~torch.isfinite(fused.gather(1, order)), 0
+                    )
+                else:
+                    predictions = best_ids
 
             values = metric_values(predictions, targets, ks)
             for name, value in values.items():
@@ -522,6 +580,8 @@ class UnifiedRunner(BaseRunner):
             "logprob_scale": self.args.logprob_scale,
             "pop_beta": self.args.pop_beta,
             "pop_length_tau": self.args.pop_length_tau,
+            "rerank_pop_weight": self.args.rerank_pop_weight,
+            "rerank_topk": self.args.rerank_topk,
             "metrics": result,
             "examples": len(frame),
             "evaluation_seconds": evaluation_seconds,

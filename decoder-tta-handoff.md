@@ -2,6 +2,11 @@
 
 > 面向队友的交接说明。目标：不读代码也能知道这一轮做了什么、为什么这样做、结果如何、
 > 哪些结论可信、哪些还没做。技术细节和逐项消融见 [decoder-tta.md](decoder-tta.md)。
+>
+> 后续在合并分支 `exp/combined-decoder-rerank` 上，把“全局流行度先验”换成了
+> 队友的“top-100 内 z-score 融合”，Grocery 从 0.04404 提到 0.04758、
+> ML1M 确定性版本从 0.09521 提到 0.09715；与队友重排的对比见
+> [decoder-vs-rerank.md](decoder-vs-rerank.md)。
 
 ## 0. 30 秒版
 

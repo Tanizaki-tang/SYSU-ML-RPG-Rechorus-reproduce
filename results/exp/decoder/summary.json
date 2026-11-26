@@ -1,0 +1,1260 @@
+[
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "adaptive",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.06954567127579865,
+      "NDCG@5": 0.0466404582222365,
+      "HR@10": 0.10237722226006403,
+      "NDCG@10": 0.05726363031186537
+    },
+    "evaluation_seconds": 67.76307429996086,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_adaptive.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "baseline_full",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.06491383420747905,
+      "NDCG@5": 0.043986992508449826,
+      "HR@10": 0.09474831414753764,
+      "NDCG@10": 0.05361858838151579
+    },
+    "evaluation_seconds": 22.59300330001861,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_baseline_full.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "mcd16",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.06525441046250255,
+      "NDCG@5": 0.04424440506681575,
+      "HR@10": 0.09440773789251414,
+      "NDCG@10": 0.05360553227665141
+    },
+    "evaluation_seconds": 81.44699820003007,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_mcd16.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "mcd8",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.06389210544240856,
+      "NDCG@5": 0.04345926365529992,
+      "HR@10": 0.09324977862543424,
+      "NDCG@10": 0.05287555227124517
+    },
+    "evaluation_seconds": 47.10072060005041,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_mcd8.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "pop01",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.06947755602479395,
+      "NDCG@5": 0.04653530023395393,
+      "HR@10": 0.10203664600504053,
+      "NDCG@10": 0.0570704262410308
+    },
+    "evaluation_seconds": 21.30059189995518,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_pop01.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "pop01_tau20",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.06927321027177985,
+      "NDCG@5": 0.046461777389975256,
+      "HR@10": 0.10183230025202643,
+      "NDCG@10": 0.05700269393021323
+    },
+    "evaluation_seconds": 21.08484409999801,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_pop01_tau20.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "pop02",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.06975001702881276,
+      "NDCG@5": 0.04673943850933337,
+      "HR@10": 0.10210476125604523,
+      "NDCG@10": 0.05721831642453607
+    },
+    "evaluation_seconds": 23.21214640000835,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_pop02.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "pop02_tau20",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.06968190177780804,
+      "NDCG@5": 0.046620077731759364,
+      "HR@10": 0.10196853075403584,
+      "NDCG@10": 0.05706773970851878
+    },
+    "evaluation_seconds": 21.676672599976882,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_pop02_tau20.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "pop05",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.07022682378584565,
+      "NDCG@5": 0.04722560300128643,
+      "HR@10": 0.10230910700905933,
+      "NDCG@10": 0.05761422641692973
+    },
+    "evaluation_seconds": 21.888189300021622,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_pop05.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_full",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.06477760370546966,
+      "NDCG@5": 0.04396668400716925,
+      "HR@10": 0.09468019889653294,
+      "NDCG@10": 0.053614560263108305
+    },
+    "evaluation_seconds": 31.2078434000141,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_tta_full.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_full_dense",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50
+    ],
+    "metrics": {
+      "HR@5": 0.06491383420747905,
+      "NDCG@5": 0.044088919197521906,
+      "HR@10": 0.09495265990055174,
+      "NDCG@10": 0.05377234271377584
+    },
+    "evaluation_seconds": 41.58541260001948,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_tta_full_dense.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_mcd8_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.06886451876575166,
+      "NDCG@5": 0.04653612799620992,
+      "HR@10": 0.10312649002111572,
+      "NDCG@10": 0.057597841850192774
+    },
+    "evaluation_seconds": 97.801686300023,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_tta_mcd8_pop.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.06968190177780804,
+      "NDCG@5": 0.046666954464198454,
+      "HR@10": 0.10244533751106873,
+      "NDCG@10": 0.05726487749761085
+    },
+    "evaluation_seconds": 28.50743410002906,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_tta_pop.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_rel_a",
+    "decode": "full",
+    "history_tta": "relative",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.06348341393638035,
+      "NDCG@5": 0.04314788924119551,
+      "HR@10": 0.09372658538246713,
+      "NDCG@10": 0.05289840160354825
+    },
+    "evaluation_seconds": 34.57944589998806,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_tta_rel_a.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_rel_b",
+    "decode": "full",
+    "history_tta": "relative",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.06341529868537565,
+      "NDCG@5": 0.04301454875982605,
+      "HR@10": 0.09290920237041074,
+      "NDCG@10": 0.05251445778311188
+    },
+    "evaluation_seconds": 30.842569599975832,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_tta_rel_b.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_rel_c",
+    "decode": "full",
+    "history_tta": "relative",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.06436891219944145,
+      "NDCG@5": 0.04394239030506968,
+      "HR@10": 0.09399904638648593,
+      "NDCG@10": 0.053469546306271536
+    },
+    "evaluation_seconds": 31.314631299988832,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_tta_rel_c.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_rel_d",
+    "decode": "full",
+    "history_tta": "relative",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.06307472243035216,
+      "NDCG@5": 0.04301532946028829,
+      "HR@10": 0.09447585314351883,
+      "NDCG@10": 0.0531242420334557
+    },
+    "evaluation_seconds": 30.86402709997492,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_tta_rel_d.dev.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "test",
+    "config": "baseline_full",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.04665894693821947,
+      "NDCG@5": 0.03190866362166155,
+      "HR@10": 0.07077174579388325,
+      "NDCG@10": 0.0396152135710001
+    },
+    "evaluation_seconds": 24.414394800027367,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_baseline_full.test.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "test",
+    "config": "pop05",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.052312512771609566,
+      "NDCG@5": 0.03511710710544682,
+      "HR@10": 0.08310060622573394,
+      "NDCG@10": 0.044965510090701134
+    },
+    "evaluation_seconds": 22.62785259995144,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_pop05.test.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2026,
+    "phase": "test",
+    "config": "tta_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.05210816701859546,
+      "NDCG@5": 0.034734521767526894,
+      "HR@10": 0.08187453170764934,
+      "NDCG@10": 0.04423982427398832
+    },
+    "evaluation_seconds": 32.57778200000757,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2026_tta_pop.test.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2027,
+    "phase": "test",
+    "config": "baseline_full",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.04550098767113957,
+      "NDCG@5": 0.03169301760968462,
+      "HR@10": 0.06763844424766706,
+      "NDCG@10": 0.038820713255586524
+    },
+    "evaluation_seconds": 20.503090900019743,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2027_baseline_full.test.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2027,
+    "phase": "test",
+    "config": "pop05",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.052040051767590766,
+      "NDCG@5": 0.03530913630385133,
+      "HR@10": 0.07962672842449424,
+      "NDCG@10": 0.044126294069641435
+    },
+    "evaluation_seconds": 20.895482299965806,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2027_pop05.test.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2027,
+    "phase": "test",
+    "config": "tta_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.051154553504529666,
+      "NDCG@5": 0.034594734894339736,
+      "HR@10": 0.07949049792248485,
+      "NDCG@10": 0.04366395060712281
+    },
+    "evaluation_seconds": 27.810033500019927,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2027_tta_pop.test.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2028,
+    "phase": "test",
+    "config": "baseline_full",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.04291260813296097,
+      "NDCG@5": 0.02998558503619223,
+      "HR@10": 0.06702540698862475,
+      "NDCG@10": 0.03773906835384472
+    },
+    "evaluation_seconds": 22.651313000009395,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2028_baseline_full.test.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2028,
+    "phase": "test",
+    "config": "pop05",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.049042980723383964,
+      "NDCG@5": 0.033310968503855246,
+      "HR@10": 0.07928615216947074,
+      "NDCG@10": 0.04302439516534207
+    },
+    "evaluation_seconds": 21.845034700003453,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2028_pop05.test.full.json"
+  },
+  {
+    "dataset": "Grocery_and_Gourmet_Food",
+    "seed": 2028,
+    "phase": "test",
+    "config": "tta_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.04911109597438867,
+      "NDCG@5": 0.03346765321902771,
+      "HR@10": 0.07894557591444724,
+      "NDCG@10": 0.0430359580253093
+    },
+    "evaluation_seconds": 27.710808900010306,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\Grocery_and_Gourmet_Food_2028_tta_pop.test.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "adaptive",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.09656237929702588,
+      "NDCG@5": 0.06420510495578606,
+      "HR@10": 0.1533410583236771,
+      "NDCG@10": 0.08260130380525042
+    },
+    "evaluation_seconds": 91.56332640000619,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_adaptive.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "baseline_full",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.09347238315952106,
+      "NDCG@5": 0.06285253376949893,
+      "HR@10": 0.14561606797991503,
+      "NDCG@10": 0.07963026886656148
+    },
+    "evaluation_seconds": 23.925352100050077,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_baseline_full.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "baseline_graph",
+    "decode": "graph",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.09424488219389726,
+      "NDCG@5": 0.06322893404331593,
+      "HR@10": 0.14600231749710313,
+      "NDCG@10": 0.07988529030803967
+    },
+    "evaluation_seconds": 29.761953600042034,
+    "graph_build_seconds": 0.23674249998293817,
+    "mean_visited_items": 1582.732715334106,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_baseline_graph.dev.graph.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "mcd16",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.09656237929702588,
+      "NDCG@5": 0.06548988776530573,
+      "HR@10": 0.1409810737736578,
+      "NDCG@10": 0.0798714636863614
+    },
+    "evaluation_seconds": 60.03348179999739,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_mcd16.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "mcd8",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.0984936268829664,
+      "NDCG@5": 0.06536884710722612,
+      "HR@10": 0.1413673232908459,
+      "NDCG@10": 0.0791214560726121
+    },
+    "evaluation_seconds": 38.243901400011964,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_mcd8.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_full",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.10390112012359985,
+      "NDCG@5": 0.06775732247867375,
+      "HR@10": 0.14600231749710313,
+      "NDCG@10": 0.08142315328222255
+    },
+    "evaluation_seconds": 29.417273200000636,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_full.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_full_both",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.10196987253765932,
+      "NDCG@5": 0.06726605243694579,
+      "HR@10": 0.14561606797991503,
+      "NDCG@10": 0.08145347324481049
+    },
+    "evaluation_seconds": 28.838391800003592,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_full_both.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_full_confw",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.10158362302047122,
+      "NDCG@5": 0.06678803042307478,
+      "HR@10": 0.14445731942835072,
+      "NDCG@10": 0.08076551874807589
+    },
+    "evaluation_seconds": 30.940272699983325,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_full_confw.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_full_dense",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50
+    ],
+    "metrics": {
+      "HR@5": 0.10119737350328312,
+      "NDCG@5": 0.0664775234392278,
+      "HR@10": 0.1440710699111626,
+      "NDCG@10": 0.08045466495465982
+    },
+    "evaluation_seconds": 44.22638399997959,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_full_dense.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_full_znorm",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.10312862108922363,
+      "NDCG@5": 0.06744862981526821,
+      "HR@10": 0.14522981846272692,
+      "NDCG@10": 0.081160788336749
+    },
+    "evaluation_seconds": 28.224489300046116,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_full_znorm.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_graph",
+    "decode": "graph",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.10390112012359985,
+      "NDCG@5": 0.06774587841991277,
+      "HR@10": 0.14600231749710313,
+      "NDCG@10": 0.08138444930217306
+    },
+    "evaluation_seconds": 29.929391300014686,
+    "graph_build_seconds": 0.1834363999660127,
+    "mean_visited_items": 1575.71842410197,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_graph.dev.graph.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_mcd8",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.10003862495171881,
+      "NDCG@5": 0.06659398828330038,
+      "HR@10": 0.1533410583236771,
+      "NDCG@10": 0.08384591008346708
+    },
+    "evaluation_seconds": 76.6233244999894,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_mcd8.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_mcd8_graph",
+    "decode": "graph",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.10042487446890691,
+      "NDCG@5": 0.06678711304189446,
+      "HR@10": 0.15295480880648898,
+      "NDCG@10": 0.08378330522249525
+    },
+    "evaluation_seconds": 87.91171660000691,
+    "graph_build_seconds": 0.8170753999729641,
+    "mean_visited_items": 1556.2742371572035,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_mcd8_graph.dev.graph.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_mcd8_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.10003862495171881,
+      "NDCG@5": 0.06664455983740292,
+      "HR@10": 0.1533410583236771,
+      "NDCG@10": 0.0838964816375696
+    },
+    "evaluation_seconds": 79.16851319995476,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_mcd8_pop.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.10390112012359985,
+      "NDCG@5": 0.06775732247867375,
+      "HR@10": 0.14600231749710313,
+      "NDCG@10": 0.08142872874808647
+    },
+    "evaluation_seconds": 26.28840860002674,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_pop.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_rel_a",
+    "decode": "full",
+    "history_tta": "relative",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.10081112398609501,
+      "NDCG@5": 0.06605006262811385,
+      "HR@10": 0.14638856701429123,
+      "NDCG@10": 0.0807425455582587
+    },
+    "evaluation_seconds": 27.546717100020032,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_rel_a.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_rel_b",
+    "decode": "full",
+    "history_tta": "relative",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.10003862495171881,
+      "NDCG@5": 0.06625852982526644,
+      "HR@10": 0.1425260718424102,
+      "NDCG@10": 0.08007855467428285
+    },
+    "evaluation_seconds": 26.70521559996996,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_rel_b.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_rel_c",
+    "decode": "full",
+    "history_tta": "relative",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.10003862495171881,
+      "NDCG@5": 0.06395656335093965,
+      "HR@10": 0.14638856701429123,
+      "NDCG@10": 0.07891195815137109
+    },
+    "evaluation_seconds": 30.19954299996607,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_rel_c.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "dev",
+    "config": "tta_rel_d",
+    "decode": "full",
+    "history_tta": "relative",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.10196987253765932,
+      "NDCG@5": 0.06642328336172483,
+      "HR@10": 0.14561606797991503,
+      "NDCG@10": 0.0804071011986097
+    },
+    "evaluation_seconds": 28.076347100024577,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_rel_d.dev.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "test",
+    "config": "baseline_full",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.1129648939867918,
+      "NDCG@5": 0.07546058788595388,
+      "HR@10": 0.16718804310045185,
+      "NDCG@10": 0.09298223230148155
+    },
+    "evaluation_seconds": 25.468439000018407,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_baseline_full.test.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "test",
+    "config": "tta_mcd8_graph",
+    "decode": "graph",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.11991657977059438,
+      "NDCG@5": 0.08237256905013335,
+      "HR@10": 0.17170663885992354,
+      "NDCG@10": 0.09890887181539113
+    },
+    "evaluation_seconds": 43.75232520001009,
+    "graph_build_seconds": 0.2266193000250496,
+    "mean_visited_items": 1563.4650677789364,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_mcd8_graph.test.graph.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "test",
+    "config": "tta_mcd8_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.12095933263816476,
+      "NDCG@5": 0.08283258497602412,
+      "HR@10": 0.17309697601668406,
+      "NDCG@10": 0.09947263967392445
+    },
+    "evaluation_seconds": 85.31633550004335,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_mcd8_pop.test.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2026,
+    "phase": "test",
+    "config": "tta_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.11644073687869308,
+      "NDCG@5": 0.07803312990707655,
+      "HR@10": 0.170316301703163,
+      "NDCG@10": 0.09547438743651325
+    },
+    "evaluation_seconds": 29.937640300020576,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2026_tta_pop.test.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2027,
+    "phase": "test",
+    "config": "baseline_full",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.11087938825165103,
+      "NDCG@5": 0.07342120113095837,
+      "HR@10": 0.1689259645464025,
+      "NDCG@10": 0.09223465464830449
+    },
+    "evaluation_seconds": 23.850539799954277,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2027_baseline_full.test.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2027,
+    "phase": "test",
+    "config": "tta_mcd8_graph",
+    "decode": "graph",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.1226972540841154,
+      "NDCG@5": 0.08314738913532105,
+      "HR@10": 0.1762252346193952,
+      "NDCG@10": 0.10033544471505237
+    },
+    "evaluation_seconds": 43.83897230000002,
+    "graph_build_seconds": 0.20558030001120642,
+    "mean_visited_items": 1562.9273548835592,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2027_tta_mcd8_graph.test.graph.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2027,
+    "phase": "test",
+    "config": "tta_mcd8_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.12234966979492527,
+      "NDCG@5": 0.08297359699072598,
+      "HR@10": 0.17692040319777547,
+      "NDCG@10": 0.10051889505559267
+    },
+    "evaluation_seconds": 86.63577669998631,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2027_tta_mcd8_pop.test.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2027,
+    "phase": "test",
+    "config": "tta_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.1153979840111227,
+      "NDCG@5": 0.07728977008479108,
+      "HR@10": 0.16927354883559262,
+      "NDCG@10": 0.09472282461938987
+    },
+    "evaluation_seconds": 30.512021899980027,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2027_tta_pop.test.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2028,
+    "phase": "test",
+    "config": "baseline_full",
+    "decode": "full",
+    "history_tta": "none",
+    "crop_lengths": [],
+    "metrics": {
+      "HR@5": 0.11226972540841154,
+      "NDCG@5": 0.07355361075148328,
+      "HR@10": 0.1678832116788321,
+      "NDCG@10": 0.09133576833723928
+    },
+    "evaluation_seconds": 22.910070700047072,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2028_baseline_full.test.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2028,
+    "phase": "test",
+    "config": "tta_mcd8_graph",
+    "decode": "graph",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.1202641640597845,
+      "NDCG@5": 0.08145766848307454,
+      "HR@10": 0.17170663885992354,
+      "NDCG@10": 0.09787155473768835
+    },
+    "evaluation_seconds": 41.33686300000409,
+    "graph_build_seconds": 0.18825180002022535,
+    "mean_visited_items": 1575.0086896072298,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2028_tta_mcd8_graph.test.graph.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2028,
+    "phase": "test",
+    "config": "tta_mcd8_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.1202641640597845,
+      "NDCG@5": 0.08139424455721703,
+      "HR@10": 0.17205422314911367,
+      "NDCG@10": 0.09790809105715026
+    },
+    "evaluation_seconds": 86.8072987999767,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2028_tta_mcd8_pop.test.full.json"
+  },
+  {
+    "dataset": "MovieLens_1M",
+    "seed": 2028,
+    "phase": "test",
+    "config": "tta_pop",
+    "decode": "full",
+    "history_tta": "crops",
+    "crop_lengths": [
+      10,
+      20,
+      40
+    ],
+    "metrics": {
+      "HR@5": 0.1129648939867918,
+      "NDCG@5": 0.07658517403416648,
+      "HR@10": 0.17170663885992354,
+      "NDCG@10": 0.09542368100933439
+    },
+    "evaluation_seconds": 28.528395400033332,
+    "graph_build_seconds": 0.0,
+    "mean_visited_items": null,
+    "eval_limit": 0,
+    "record_file": "results\\exp\\decoder\\MovieLens_1M_2028_tta_pop.test.full.json"
+  }
+]
